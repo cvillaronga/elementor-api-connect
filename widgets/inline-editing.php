@@ -1,5 +1,5 @@
 <?php
-namespace ElementorHelloWorld\Widgets;
+namespace ElementorApiConnect\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -34,7 +34,7 @@ class Inline_Editing extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Inline Editing', 'elementor-hello-world' );
+		return __( 'Inline Editing', 'elementor-api-connect' );
 	}
 
 	/**
@@ -81,34 +81,34 @@ class Inline_Editing extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'Content', 'elementor-hello-world' ),
+				'label' => __( 'Content', 'elementor-api-connect' ),
 			]
 		);
 
 		$this->add_control(
 			'title',
 			[
-				'label' => __( 'Title', 'elementor-hello-world' ),
+				'label' => __( 'Title', 'elementor-api-connect' ),
 				'type' => Controls_Manager::TEXT,
-				'default' => __( 'Title', 'elementor-hello-world' ),
+				'default' => __( 'Title', 'elementor-api-connect' ),
 			]
 		);
 
 		$this->add_control(
 			'description',
 			[
-				'label' => __( 'Description', 'elementor-hello-world' ),
+				'label' => __( 'Description', 'elementor-api-connect' ),
 				'type' => Controls_Manager::TEXTAREA,
-				'default' => __( 'Description', 'elementor-hello-world' ),
+				'default' => __( 'Description', 'elementor-api-connect' ),
 			]
 		);
 
 		$this->add_control(
 			'content',
 			[
-				'label' => __( 'Content', 'elementor-hello-world' ),
+				'label' => __( 'Content', 'elementor-api-connect' ),
 				'type' => Controls_Manager::WYSIWYG,
-				'default' => __( 'Content', 'elementor-hello-world' ),
+				'default' => __( 'Content', 'elementor-api-connect' ),
 			]
 		);
 
@@ -152,10 +152,18 @@ class Inline_Editing extends Widget_Base {
 		<#
 		view.addInlineEditingAttributes( 'title', 'none' );
 		view.addInlineEditingAttributes( 'description', 'basic' );
+        view.addInlineEditingAttributes( 'base_url', 'advanced' );
+        view.addInlineEditingAttributes( 'token_url', 'advanced' );
+        view.addInlineEditingAttributes( 'client_id', 'advanced' );
+        view.addInlineEditingAttributes( 'client_secret', 'advanced' );
 		view.addInlineEditingAttributes( 'content', 'advanced' );
 		#>
 		<h2 {{{ view.getRenderAttributeString( 'title' ) }}}>{{{ settings.title }}}</h2>
 		<div {{{ view.getRenderAttributeString( 'description' ) }}}>{{{ settings.description }}}</div>
+        <div {{{ view.getRenderAttributeString( 'base_url' ) }}}>{{{ settings.base_url }}}</div>
+        <div {{{ view.getRenderAttributeString( 'token_url' ) }}}>{{{ settings.token_url }}}</div>
+        <div {{{ view.getRenderAttributeString( 'client_id' ) }}}>{{{ settings.client_id }}}</div>
+        <div {{{ view.getRenderAttributeString( 'client_secret' ) }}}>{{{ settings.client_secret }}}</div>
 		<div {{{ view.getRenderAttributeString( 'content' ) }}}>{{{ settings.content }}}</div>
 		<?php
 	}

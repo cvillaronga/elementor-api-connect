@@ -1,5 +1,5 @@
 <?php
-namespace ElementorHelloWorld\Widgets;
+namespace ElementorApiConnect\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -38,7 +38,7 @@ class Hello_World extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return __( 'Hello World', 'elementor-hello-world' );
+		return __( 'Hello World', 'elementor-api-connect' );
 	}
 
 	/**
@@ -84,7 +84,7 @@ class Hello_World extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'elementor-hello-world' ];
+		return [ 'elementor-api-connect' ];
 	}
 
 	/**
@@ -100,16 +100,57 @@ class Hello_World extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => __( 'Content', 'elementor-hello-world' ),
+				'label' => __( 'Content', 'elementor-api-connect' ),
 			]
 		);
 
 		$this->add_control(
 			'title',
 			[
-				'label' => __( 'Title', 'elementor-hello-world' ),
+				'label' => __( 'Title', 'elementor-api-connect' ),
 				'type' => Controls_Manager::TEXT,
 			]
+		);
+
+		$this->add_control(
+			'base_url',
+            [
+	            'label'   => __( 'Base URL', 'elementor-api-connect' ),
+	            'type'    => Controls_Manager::TEXT,
+            ]
+		);
+
+		$this->add_control(
+			'token_url',
+			[
+				'label'   => __( 'Token URL', 'elementor-api-connect' ),
+				'type'    => Controls_Manager::TEXT,
+			]
+		);
+
+		$this->add_control(
+			'client_id',
+			[
+				'label'   => __( 'Client Id', 'elementor-api-connect' ),
+				'type'    => Controls_Manager::TEXT,
+			]
+		);
+
+		$this->add_control(
+			'client_secret',
+			[
+				'label'   => __( 'Client Secret', 'elementor-api-connect' ),
+				'type'    => Controls_Manager::TEXT,
+			]
+		);
+
+		$this->add_control(
+			'content',
+			array(
+				'label'   => __( 'Content', 'elementor-awesomesauce' ),
+				'type'    => Controls_Manager::WYSIWYG,
+				'default' => __( 'Content', 'elementor-awesomesauce' ),
+			)
 		);
 
 		$this->end_controls_section();
@@ -117,7 +158,7 @@ class Hello_World extends Widget_Base {
 		$this->start_controls_section(
 			'section_style',
 			[
-				'label' => __( 'Style', 'elementor-hello-world' ),
+				'label' => __( 'Style', 'elementor-api-connect' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -125,14 +166,14 @@ class Hello_World extends Widget_Base {
 		$this->add_control(
 			'text_transform',
 			[
-				'label' => __( 'Text Transform', 'elementor-hello-world' ),
+				'label' => __( 'Text Transform', 'elementor-api-connect' ),
 				'type' => Controls_Manager::SELECT,
 				'default' => '',
 				'options' => [
-					'' => __( 'None', 'elementor-hello-world' ),
-					'uppercase' => __( 'UPPERCASE', 'elementor-hello-world' ),
-					'lowercase' => __( 'lowercase', 'elementor-hello-world' ),
-					'capitalize' => __( 'Capitalize', 'elementor-hello-world' ),
+					'' => __( 'None', 'elementor-api-connect' ),
+					'uppercase' => __( 'UPPERCASE', 'elementor-api-connect' ),
+					'lowercase' => __( 'lowercase', 'elementor-api-connect' ),
+					'capitalize' => __( 'Capitalize', 'elementor-api-connect' ),
 				],
 				'selectors' => [
 					'{{WRAPPER}} .title' => 'text-transform: {{VALUE}};',
